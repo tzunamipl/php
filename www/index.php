@@ -19,6 +19,7 @@ if ($results === false) {
 ?>
 
 <?php require 'includes/header.php'; ?>
+
         <?php if (empty($cars)): ?>
             <p>No cars found</p>
         <?php else: ?>
@@ -33,5 +34,6 @@ if ($results === false) {
             <?php endforeach; ?>
         </ul>
         <?php endif; ?>
+
 <?php require 'includes/footer.php'; ?>
 
