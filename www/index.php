@@ -2,19 +2,7 @@
 
 $current_year = 2025;
 
-$db_host = "172.30.7.45:41306";
-$db_name = "cars";
-$db_user = "admin";
-$db_pass = "password";
-
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-
-if (mysqli_connect_error()) {
-    echo mysqli_connect_error();
-    exit;
-}
-
-echo "Connected succesfully";
+require 'includes/database.php';
 
 $sql = 'SELECT * FROM models;';
 
@@ -30,17 +18,7 @@ if ($results === false) {
 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cars</title>
-    <meta charset="utf-8">
-</head>
-<body>
-    <header>
-        <h1>Cars</h1>
-    </header>
-    <main>
+<?php require 'includes/header.php'; ?>
         <?php if (empty($cars)): ?>
             <p>No cars found</p>
         <?php else: ?>
@@ -55,6 +33,5 @@ if ($results === false) {
             <?php endforeach; ?>
         </ul>
         <?php endif; ?>
-    </main>
-</body>
-</html>
+<?php require 'includes/footer.php'; ?>
+
